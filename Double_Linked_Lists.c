@@ -10,6 +10,10 @@ struct Node * InsertAtBeginning(struct Node*, int); //Inserting A Node at the be
 struct Node * InsertAtIndex(struct Node*, int, int); // Inserting at a given Index.
 struct Node * InsertAtLast(struct Node*,int); //Inserting at Last.
 void InsertAfterNode(struct Node*,int); //Inserting after a given node.
+struct Node * DeleteAtBeginning(struct Node*); //Deleting at the beginning.
+void DeleteAtIndex(struct Node*,int); //Deleting at a given index.
+void DeleteAtEnd(struct Node*); // Deleting at the end of the Linked List.
+void DeleteAfterNode(struct Node*); // Deleting after a specifie Node.
 int main()
 {
     //Defining my nodes and assigning them memory dynamically.
@@ -48,9 +52,28 @@ int main()
     // DLL_Traversal(head);
 
     //Insert after a Node.
-    InsertAfterNode(second,54);
-    DLL_Traversal(head);
+    // InsertAfterNode(second,54);
+    // DLL_Traversal(head);
 
+    //Deleting the first node.
+    // head = DeleteAtBeginning(head);
+    // DLL_Traversal(head);
+
+    //Delete at a given Index
+    // DeleteAtIndex(head,1);
+    // DLL_Traversal(head);
+
+    //Delete At End.
+    // DeleteAtEnd(head);
+    // DLL_Traversal(head);
+
+    //Delete after a node.
+    // DeleteAfterNode(second);
+    // DLL_Traversal(head);
+
+
+    //Uncomment and try out the operations by urself.
+    //Happy coding :)
 
     return 0;
 }
@@ -117,7 +140,45 @@ void InsertAfterNode(struct Node * prev, int data)
     prev->next->prev = newnode;
     prev->next = newnode;
     newnode->prev = prev;
+}
+
+struct Node * DeleteAtBeginning(struct Node * head)
+{
+    struct Node * ptr = head;
+    head = head->next;
+    head->prev = NULL;
+    free(ptr);
+    return head;
+}
+
+void DeleteAtIndex(struct Node * head, int index)
+{
+    struct Node * ptr = head;
+    struct Node * q = ptr->next;
+    int i = 0;
+    while(i<index-1){
+        ptr = ptr->next;
+        q = q->next;
+    }
+    ptr->next = q->next;
+    q->next = ptr;
+    free(q);
     
+}
 
+void DeleteAtEnd(struct Node * head){
+    struct Node * ptr = head;
+    while(ptr->next != NULL){
+        ptr = ptr->next;
+    }
+    ptr->prev->next = NULL;
+    free(ptr);
+}
 
+void DeleteAfterNode(struct Node * prev)
+{
+    struct Node * ptr = prev->next;
+    prev->next = ptr->next;
+    ptr->next->prev = prev;
+    free(ptr);
 }
