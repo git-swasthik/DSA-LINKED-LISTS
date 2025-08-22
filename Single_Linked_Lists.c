@@ -58,7 +58,7 @@ int main()
     // LinkedListTraversal(head);
 
     //Deleting after a Node.
-    // DeleteAfterNode(second); //Deltes the Node after the second node in the list.
+    // DeleteAfterNode(second); //Deletes the Node after the second node in the list.
     // LinkedListTraversal(head);
 
     //Uncommnet them and try it urself.
