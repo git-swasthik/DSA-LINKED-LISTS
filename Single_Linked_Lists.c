@@ -42,7 +42,7 @@ int main()
     // LinkedListTraversal(head);
 
     //Insert After a Given Node.
-    // InsertAfterNode(second,78); //I'm telling the function to enter a node after the second node.
+    // InsertAfterNode(second,78); //I'm telling the function to insert a node after the second node.
     // LinkedListTraversal(head);
 
     //Deleting the First Node.
